@@ -49,7 +49,7 @@ resource "azurerm_application_gateway" "main" {
     capacity = 2
   }
   
-  gatway_ip_configuration {
+  gateway_ip_configuration {
     name = "my-gateway-ip-configuration"
     subnet_id = azurerm_subnet.frontend.id
   }
@@ -96,7 +96,7 @@ resource "azurerm_application_gateway" "main" {
 resource "azurerm_network_interface" "nic" {
   count = 2
   name = "nic-${count.index+1}"
-  location = azurerm.resource_group.rg.location
+  location = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   
   ip_configuration {
